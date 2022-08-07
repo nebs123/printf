@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	int n = printf("Hello, World%d %k\n", 123);
+	int n = printf("Hello, World%####  +  11.7 dAfter specifer\n", 123);
 	printf("Hello, %d\n", n);
 
 	n = _printf("Hello, World\n");

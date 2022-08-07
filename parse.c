@@ -1,38 +1,132 @@
 #include "main.h"
-
+/**
+ *
+ *
+ *
+ */
 unsigned int put_into_buffer(char *buffer, unsigned int nextPos, char c)
 {
 	if (nextPos == 1024)
 	{
-		write(STDOUT, buffer, nextPos);
+		write(STDOUT_FILENO, buffer, nextPos);
 		nextPos = 0;
 	}
 	buffer[nextPos] = c;
 	return (nextPos + 1);
 }
 
+/**
+ *
+ *
+ *
+ */
 int _printf(const char *format, ...)
 {
 	va_list list;
-	char buffer[1024];
-	unsigned int buff_pointer = 0, printed = 0, next_char = 0;
+	char buffer[1024], *str;
+	unsigned int buff_pointer = 0, printed = 0;
+	fmt_spec_info *fmt_info;
 
 	va_start(list, format);
-	while (*(format + next_char))
+	while (*format)
 	{
-		if (*(format + next_char) == '%')
+		if (*format == '%')
 		{
+
+			fmt_info = spec_parser(format + 1);
+			str = spec_handler(list,fmt_info);
+			if (str == NULL)
+			{
+				/*if NULL then print chars as they are */
+			}
+			else
+			{
+				buff_pointer = put_into_buffer_str(
+					buffer, buff_pointer, str);
+			}
+			format += fmt_info->spec_len;
+			printed += str_len(str);
 		}
 		else
 		{
 			buff_pointer = put_into_buffer(buffer, buff_pointer,
-						       *(format + next_char));
+						       *format);
 			printed +=  1;
 		}
-		next_char++;
+		format++;
 	}
-	write(STDOUT, buffer, buff_pointer);
+	write(STDOUT_FILENO, buffer, buff_pointer);
 	va_end(list);
 
 	return (printed);
+}
+
+/**
+ *
+ *
+ *
+ */
+fmt_spec_info *spec_parser(const char *ptr)
+{
+	fmt_spec_info *info;
+
+	info = malloc(sizeof(fmt_spec_info));
+	info->spec = '\0';
+	info->width = 0;
+	info ->precision = 0;
+	info->is_width_prec = '\0';
+	info->type = '\0';
+	info->flags = '\0';
+	info->spec_len = 0;
+
+	ptr = getFlags(ptr, info);
+	ptr = getWidth(ptr, info);
+	ptr = getPrecision(ptr, info);
+	ptr = get_len_mod(ptr, info);
+	ptr = get_conversion(ptr,info);
+	return (info);
+}
+
+/**
+ *
+ *
+ *
+ *
+ */
+char *spec_handler(va_list list, fmt_spec_info *info)
+{
+	fmt_spec_func fun_list[] ={
+		{'s', s_to_str},
+		{'c', c_to_str},
+		{'%', perc_to_str},
+		{'\0', NULL}
+	};
+	int x;
+
+	for (x = 0; x < 3; x++)
+	{
+		if (info->spec == fun_list[x].c)
+		{
+			break;
+		}
+	}
+	if (fun_list[x].fun == NULL)
+		return (NULL);
+	else
+		return (*fun_list[x].fun)(list, info);
+}
+
+/**
+ *
+ *
+ *
+ */
+unsigned int str_len(char *str)
+{
+	unsigned int len = 0;
+
+	while(*str++)
+		len++;
+
+	return (len);
 }

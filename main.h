@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 #define STDOUT 1
 /**
  * struct fmt_spec_i - holds information about specifier
@@ -28,7 +29,7 @@ typedef struct fmt_spec_i fmt_spec_info;
 struct fmt_spec_fun
 {
 	char c;
-	char *(*fun)(va_list, fmt_spec_info);
+	char *(*fun)(va_list, fmt_spec_info *);
 };
 
 /**
@@ -39,4 +40,13 @@ typedef struct fmt_spec_fun fmt_spec_func;
 int _printf(const char *format, ...)
 	__attribute__ ((format (printf, 1, 2)));
 unsigned int put_into_buffer(char *buffer, unsigned int nextPos, char c);
+fmt_spec_info *spec_parser(const char *);
+char *spec_handler(va_list, fmt_spec_info *);
+unsigned int put_into_buffer_str(char *buffer, unsigned int nextPos, char *str);
+const char *get_conversion(const char *, fmt_spec_info *);
+const char *get_len_mod(const char *, fmt_spec_info *);
+const char *getPrecision(const char *, fmt_spec_info *);
+const char *getWidth(const char *, fmt_spec_info *);
+const char *getFlags(const char *, fmt_spec_info *);
+unsigned int str_len(char *);
 #endif
