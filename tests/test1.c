@@ -6,7 +6,13 @@ int main(void)
 	int n = printf("Hello, World%####  +  11.7 dAfter specifer\n", 123);
 	printf("Hello, %d\n", n);
 
-	n = _printf("Hello, World\n");
+	n = _printf("Hello, %s\n", "World");
+	printf("Hello, %d\n", n);
+
+	n = _printf("Hello, Worl%c\n", 'd');
+	printf("Hello, %d\n", n);
+
+	n = _printf("Hello, %%\n");
 	printf("Hello, %d\n", n);
 	return (0);
 }

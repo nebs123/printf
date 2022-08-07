@@ -49,7 +49,7 @@ const char *getPrecision(const char *, fmt_spec_info *);
 const char *getWidth(const char *, fmt_spec_info *);
 const char *getFlags(const char *, fmt_spec_info *);
 unsigned int str_len(char *);
-char *s_to_str(va_list list, fmt_spec_info info);
-char *c_to_str(va_list list, fmt_spec_info info);
-char *perc_to_str(va_list list, fmt_spec_info info);
+char *s_to_str(va_list list, fmt_spec_info *info);
+char *c_to_str(va_list list, fmt_spec_info *info);
+char *perc_to_str(va_list list, fmt_spec_info *info);
 #endif
