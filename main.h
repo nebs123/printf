@@ -2,7 +2,6 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdio.h>
 #define STDOUT 1
 /**
  * struct fmt_spec_i - holds information about specifier
