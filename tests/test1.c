@@ -50,12 +50,24 @@ int main(void)
 	for (n = 0; n < 1028; n++)
 		x[n] = 'a';
 	x[1027] = '\0';
-
-	n = printf("%");
-	printf("% by itself %d\n", n);
-	n = _printf("%");
-	printf("% by itself %d\n", n);
 	
+	n = printf("%");
+	printf("% by itself n = %d\n", n);
+	n = _printf("%");
+	printf("% by itself n = %d\n", n);
+
+
+	
+	n = printf("Hello %  \0\n");
+	printf("n = %d: % by itself plus spaces \n", n);
+	n = _printf("Hello %  \0\n");
+	printf("n = %d: % by itself plus spaces \n", n);
+
+	n = printf("Hello %          k\n");
+	printf("n = %d: non-changing % by itself plus spaces plus newline \n", n);
+	n = _printf("Hello %   \n");
+	printf("n = %d: % by itself plus spaces plus newline \n", n);
+
 	n = printf("This is garbage: \\%     s%s \n", x);
 	printf("%d\n",n);
 	n = _printf("This is garbage: \\%     s%s \n", x);

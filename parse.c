@@ -29,8 +29,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	if (format[0] == '%' && format[1] == '\0')
-		return (-1);
 
 	va_start(list, format);
 	while (*format)
@@ -42,6 +40,12 @@ int _printf(const char *format, ...)
 			str = spec_handler(list,fmt_info);
 			if (str == NULL)
 			{
+				if (fmt_info->spec == '\0')
+				{
+					free(fmt_info);
+					write(STDOUT_FILENO, buffer, buff_pointer);
+					return (-1);
+				}
 				buff_pointer = put_into_buffer(
 					buffer, buff_pointer,*format);
 				printed += 1;
