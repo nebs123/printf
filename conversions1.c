@@ -20,7 +20,38 @@ const char *getFlags(const char *ptr, fmt_spec_info *info)
 			info->spec_len += 1;
 			ptr++;
 			break;
-
+		case '+':
+			if (!(info->flags & PLUS))
+			{
+				info->flags += PLUS;
+			}
+			info->spec_len += 1;
+			ptr++;
+			break;
+		case '#':
+			if (!(info->flags & HASH))
+			{
+				info->flags += HASH;
+			}
+			info->spec_len += 1;
+			ptr++;
+			break;
+		case '-':
+			if (!(info->flags & DASH))
+			{
+				info->flags += DASH;
+			}
+			info->spec_len += 1;
+			ptr++;
+			break;
+		case '0':
+			if (!(info->flags & ZERO))
+			{
+				info->flags += ZERO;
+			}
+			info->spec_len += 1;
+			ptr++;
+			break;
 		default:
 			done = 0;
 		}

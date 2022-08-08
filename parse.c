@@ -49,11 +49,38 @@ int _printf(const char *format, ...)
 				buff_pointer = put_into_buffer(
 					buffer, buff_pointer,*format);
 				printed += 1;
-				if (fmt_info->flags & SPACE)
+				if (fmt_info->flags)
 				{
-					buff_pointer = put_into_buffer(
-						buffer, buff_pointer,' ');
-					printed += 1;
+					if (fmt_info->flags & HASH)
+					{
+						buff_pointer = put_into_buffer(
+							buffer, buff_pointer,'#');
+						printed += 1;
+					}
+					if (fmt_info->flags & PLUS)
+					{
+						buff_pointer = put_into_buffer(
+							buffer, buff_pointer,'+');
+						printed += 1;
+					}
+					else if (fmt_info->flags & SPACE)
+					{
+						buff_pointer = put_into_buffer(
+							buffer, buff_pointer,' ');
+						printed += 1;
+					}
+					if (fmt_info->flags & DASH)
+					{
+						buff_pointer = put_into_buffer(
+							buffer, buff_pointer,'-');
+						printed += 1;
+					}
+					else if (fmt_info->flags & ZERO)
+					{
+						buff_pointer = put_into_buffer(
+							buffer, buff_pointer,'0');
+						printed += 1;
+					}
 					format += (fmt_info->spec_len - 1);
 				}
 			}

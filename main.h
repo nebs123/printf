@@ -4,6 +4,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #define SPACE 1
+#define PLUS (1ul << 1)
+#define HASH (1ul << 2)
+#define DASH (1ul << 3)
+#define ZERO (1ul << 4)
 /**
  * struct fmt_spec_i - holds information about specifier
  * @spec: the specifier character
@@ -13,9 +17,9 @@ struct fmt_spec_i {
 	char spec;
 	int width;
 	int precision;
-	char is_width_prec;
-	char type;
-	char flags;
+	unsigned char is_width_prec;
+	unsigned char type;
+	unsigned char flags;
 	unsigned int spec_len;
 };
 
