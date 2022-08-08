@@ -148,6 +148,8 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 		{'s', s_to_str},
 		{'c', c_to_str},
 		{'%', perc_to_str},
+		{'d', di_to_str},
+		{'i', di_to_str},
 		{'\0', NULL}
 	};
 	int x;
