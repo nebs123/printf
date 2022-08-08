@@ -4,7 +4,8 @@
 int main(void)
 {
 	int n;
-	/*
+	char *x;
+/*
 	  n = printf("Hello, %s\n", "World");
 	printf("%d\n", n);
 	
@@ -29,8 +30,26 @@ int main(void)
 	n = printf("%    c %c %%\n", 'N', 'T');
 	printf("%d\n", n);
 
-	printf("% 8 d\n", 100);
+	n = printf("%   %\n");
+	printf("%d\n", n);
 	
+	n = _printf("%   %\n");
+	printf("%d\n", n);
+	
+	n = printf("% 8 d\n", 100);
+	printf("%d\n", n);
+	n = _printf("% 8 d\n", 100);
+	printf("%d\n", n);
+
+	x = malloc(1028);
+	for (n = 0; n < 1028; n++)
+		x[n] = 'a';
+	x[1027] = '\0';
+	n = printf("This is garbage: \\%     s \n", x);
+	printf("%d\n",n);
+	n = _printf("This is garbage: \\%     s \n", x);
+	printf("%d\n",n);
+
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
 	_printf("String:[%s] \n", "I am a string !");
