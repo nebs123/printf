@@ -56,4 +56,8 @@ unsigned int str_len(char *);
 char *s_to_str(va_list list, fmt_spec_info *info);
 char *c_to_str(va_list list, fmt_spec_info *info);
 char *perc_to_str(va_list list, fmt_spec_info *info);
+char *di_to_str(va_list list, fmt_spec_info *info);
+char *string_cat(char *str, char c);
+char *int_to_str(int num);
+char *string_pre(char *str, char c);
 #endif

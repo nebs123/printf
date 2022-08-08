@@ -60,3 +60,15 @@ char *perc_to_str(va_list list, fmt_spec_info *info)
 	s[1] = '\0';
 	return (s);
 }
+char *di_to_str(va_list list, fmt_spec_info *info)
+{
+	char *s;
+	int num;
+
+	(void) info;
+	num = va_arg(list, int);
+
+	s = int_to_str(num);
+
+	return (s);
+}	
