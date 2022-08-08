@@ -49,6 +49,13 @@ int _printf(const char *format, ...)
 				buff_pointer = put_into_buffer(
 					buffer, buff_pointer,*format);
 				printed += 1;
+				if (fmt_info->flags & SPACE)
+				{
+					buff_pointer = put_into_buffer(
+						buffer, buff_pointer,' ');
+					printed += 1;
+					format += (fmt_info->spec_len - 1);
+				}
 			}
 			else
 			{

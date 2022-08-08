@@ -52,21 +52,19 @@ int main(void)
 	x[1027] = '\0';
 	
 	n = printf("%");
-	printf("% by itself n = %d\n", n);
+	printf("% by itself %d\n", n);
 	n = _printf("%");
-	printf("% by itself n = %d\n", n);
+	printf("% by itself %d\n", n);
 
+	n = printf("Hello %        ");
+	printf("This is the val of n: %d\n",n);
+	n = _printf("Hello %        ");
+	printf("This is the val of n: %d\n",n);
 
-	
-	n = printf("Hello %  \0\n");
-	printf("n = %d: % by itself plus spaces \n", n);
-	n = _printf("Hello %  \0\n");
-	printf("n = %d: % by itself plus spaces \n", n);
-
-	n = printf("Hello %          k\n");
-	printf("n = %d: non-changing % by itself plus spaces plus newline \n", n);
-	n = _printf("Hello %   \n");
-	printf("n = %d: % by itself plus spaces plus newline \n", n);
+	n = printf("Hello %                  90k\n");
+	printf("This is the val of n: %d\n",n);
+	n = _printf("Hello %                  90k\n");
+	printf("This is the val of n: %d\n",n);
 
 	n = printf("This is garbage: \\%     s%s \n", x);
 	printf("%d\n",n);
