@@ -11,6 +11,20 @@ char *s_to_str(va_list list, fmt_spec_info *info)
 
 	(void) info;
 	str = va_arg(list, char *);
+	if (str == NULL)
+	{
+		s = malloc(sizeof(char) * str_len("(null)") + 1);
+		if (s == NULL)
+			return (NULL);
+		s[0] = '(';
+		s[1] = 'n';
+		s[2] = 'u';
+		s[3] = 'l';
+		s[4] = 'l';
+		s[5] = ')';
+
+		return (s);
+	}
 
 	s = malloc(sizeof(char) * str_len(str) + 1);
 	if (s == NULL)

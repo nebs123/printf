@@ -37,15 +37,17 @@ int _printf(const char *format, ...)
 			str = spec_handler(list,fmt_info);
 			if (str == NULL)
 			{
-				/*if NULL then print chars as they are */
+				buff_pointer = put_into_buffer(
+					buffer, buff_pointer,*format);
 			}
 			else
 			{
 				buff_pointer = put_into_buffer_str(
 					buffer, buff_pointer, str);
+				printed += str_len(str);
+				format += fmt_info->spec_len;
 			}
-			format += fmt_info->spec_len;
-			printed += str_len(str);
+
 		}
 		else
 		{
@@ -125,8 +127,10 @@ unsigned int str_len(char *str)
 {
 	unsigned int len = 0;
 
-	while(*str++)
+	while(*str)
+	{
 		len++;
-
+		str++;
+	}
 	return (len);
 }

@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
-#define STDOUT 1
+#define SPACE 1
 /**
  * struct fmt_spec_i - holds information about specifier
  * @spec: the specifier character

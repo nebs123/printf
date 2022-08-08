@@ -7,7 +7,25 @@
  */
 const char *getFlags(const char *ptr, fmt_spec_info *info)
 {
-	(void) info;
+	int done = 1;
+
+	while (done)
+	{
+		switch (*ptr){
+		case ' ':
+			if (!(info->flags & SPACE))
+			{
+				info->flags += SPACE;
+			}
+			info->spec_len += 1;
+			ptr++;
+			break;
+
+		default:
+			done = 0;
+		}
+	}
+
 	return (ptr);
 }
 
