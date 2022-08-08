@@ -7,7 +7,7 @@
  */
 char *string_cat(char *str, char c)
 {
-	int i;
+	unsigned int i;
 	char *s;
 
 	s = malloc(sizeof(char) * str_len(str) + 2);
@@ -53,7 +53,7 @@ char *int_to_str(int num)
 }
 char *string_pre(char *str, char c)
 {
-	int i = 0;
+	unsigned int i = 0;
 	char *s;
 
 	s = malloc(sizeof(char) * str_len(str) + 2);
