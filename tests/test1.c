@@ -41,13 +41,24 @@ int main(void)
 	n = _printf("% 8 d\n", 100);
 	printf("%d\n", n);
 
+	n = printf(NULL);
+	printf("%d\n", n);
+	n = _printf(NULL);
+	printf("%d\n", n);
+
 	x = malloc(1028);
 	for (n = 0; n < 1028; n++)
 		x[n] = 'a';
 	x[1027] = '\0';
-	n = printf("This is garbage: \\%     s \n", x);
+
+	n = printf("%");
+	printf("% by itself %d\n", n);
+	n = _printf("%");
+	printf("% by itself %d\n", n);
+	
+	n = printf("This is garbage: \\%     s%s \n", x);
 	printf("%d\n",n);
-	n = _printf("This is garbage: \\%     s \n", x);
+	n = _printf("This is garbage: \\%     s%s \n", x);
 	printf("%d\n",n);
 
 	_printf("Character:[%c]\n", 'H');

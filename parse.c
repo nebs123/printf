@@ -27,6 +27,11 @@ int _printf(const char *format, ...)
 	unsigned int buff_pointer = 0, printed = 0;
 	fmt_spec_info *fmt_info;
 
+	if (format == NULL)
+		return (-1);
+	if (format[0] == '%' && format[1] == '\0')
+		return (-1);
+	
 	va_start(list, format);
 	while (*format)
 	{
