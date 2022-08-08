@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == '\0')
 		return (-1);
-	
+
 	va_start(list, format);
 	while (*format)
 	{
@@ -52,7 +52,9 @@ int _printf(const char *format, ...)
 					buffer, buff_pointer, str);
 				printed += str_len(str);
 				format += fmt_info->spec_len;
+				free(str);
 			}
+			free(fmt_info);
 
 		}
 		else
