@@ -59,12 +59,14 @@ char *int_to_str(int num)
 	}
 	s = malloc(sizeof(char) * 1);
 	s[0] = '\0';
+
 	if (j / 10)
 	{
 		free(s);
 		s = int_to_str(j / 10);
 	}
 	s = string_cat(s,'0' + (j % 10));
+
 	if (neg)
 		s = string_pre(s, '-');
 	return (s);
@@ -84,4 +86,22 @@ char *string_pre(char *str, char c)
 	s[i] = '\0';
 	free(str);
 	return(s);
+}
+
+char *int_to_binstr(unsigned int num)
+{
+	char *s;
+
+
+	s = malloc(sizeof(char) * 1);
+	s[0] = '\0';
+
+	if (num / 2)
+	{
+		free(s);
+		s = int_to_binstr(num / 2);
+	}
+	s = string_cat(s,'0' + (num % 2));
+
+	return (s);
 }

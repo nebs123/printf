@@ -2,25 +2,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
-1;95;0c *
+ *
  *
  *
  *
  */
 int main(void)
 {
-	int n, i, num;
-	/*
-	for (i = 0; i < 1000000; i++)
+	int n,n1,n2, i, num = 1;
+
+	for (i = 0; i < 100; i++)
 	{
-		num = i;
-		n1 = printf("%d and %i\n", num, -num);
-		n2 = _printf("%d and %i\n", num, -num);
+		num = num * 2;
+		n1 = printf("%d and %i, b is %b\n", num, -num, num);
+		n2 = _printf("%d and %i, b is %b\n", num, -num, num);
 
 		if (n1 != n2)
 			printf("HERRRRRRRRRREEEEEEEEEEEEEEEEEEEEEEEEE\n");
 	}
-	*/
+
 	(void) num;
 	(void) i;
 

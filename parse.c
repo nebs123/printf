@@ -156,11 +156,12 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 		{'%', perc_to_str},
 		{'d', di_to_str},
 		{'i', di_to_str},
+		{'b', b_to_str},
 		{'\0', NULL}
 	};
 	int x;
 
-	for (x = 0; x < 5; x++)
+	for (x = 0; x < 6; x++)
 	{
 		if (info->spec == fun_list[x].c)
 		{
