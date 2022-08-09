@@ -92,6 +92,11 @@ int _printf(const char *format, ...)
 				buff_pointer = put_into_buffer_str(
 					buffer, buff_pointer, str);
 				printed += str_len(str);
+				if (fmt_info->spec == 'c' && *str == '\0')
+				{
+					buff_pointer = put_into_buffer(buffer, buff_pointer, '\0');
+					printed += 1;
+				}
 				format += fmt_info->spec_len;
 				free(str);
 			}
