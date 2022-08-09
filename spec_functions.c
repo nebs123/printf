@@ -63,12 +63,10 @@ char *perc_to_str(va_list list, fmt_spec_info *info)
 char *di_to_str(va_list list, fmt_spec_info *info)
 {
 	char *s;
-	int num;
+	long int num;
 
 	(void) info;
-	num = va_arg(list, int);
-
+	num = va_arg(list,long int);
 	s = int_to_str(num);
-
 	return (s);
 }
