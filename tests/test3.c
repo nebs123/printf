@@ -24,9 +24,9 @@ int main(void)
 	(void) num;
 	(void) i;
 
-	n = printf("%d and %i\n", 123422342, -2342423234);
+	n = printf("%d and %i %u %o %x %X\n", 123422342, -2342423234, 255, 255, 255,255);
 	printf("n: %d\n", n);
-	n = _printf("%d and %i\n",123422342, -2342423234);
+	n = _printf("%d and %i %u %o %x %X\n",123422342, -2342423234, 255, 255, 255, 255);
 	printf("n: %d\n", n);
 	return (0);
 }

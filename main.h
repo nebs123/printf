@@ -58,8 +58,16 @@ char *c_to_str(va_list list, fmt_spec_info *info);
 char *perc_to_str(va_list list, fmt_spec_info *info);
 char *di_to_str(va_list list, fmt_spec_info *info);
 char *b_to_str(va_list list, fmt_spec_info *info);
+char *u_to_str(va_list list, fmt_spec_info *info);
+char *o_to_str(va_list list, fmt_spec_info *info);
+char *x_to_str(va_list list, fmt_spec_info *info);
+char *X_to_str(va_list list, fmt_spec_info *info);
 char *string_cat(char *str, char c);
 char *int_to_str(int num);
 char *string_pre(char *str, char c);
 char *int_to_binstr(unsigned int num);
+char *uint_to_str(unsigned int num);
+char *oint_to_str(unsigned int num);
+char *xint_to_str(unsigned int num);
+char *Xint_to_str(unsigned int num);
 #endif
