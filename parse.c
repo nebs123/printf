@@ -40,12 +40,13 @@ int _printf(const char *format, ...)
 			str = spec_handler(list,fmt_info);
 			if (str == NULL)
 			{
+				/*
 				if (fmt_info->spec == '\0')
 				{
 					free(fmt_info);
 					write(STDOUT_FILENO, buffer, buff_pointer);
 					return (-1);
-				}
+				}*/
 				buff_pointer = put_into_buffer(
 					buffer, buff_pointer,*format);
 				printed += 1;

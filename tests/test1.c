@@ -76,6 +76,11 @@ int main(void)
 	n = _printf("Hello %      %%\n");
 	printf("This is the val of n: %d\n",n);
 
+	n = printf("\%");
+	printf("This is the val of n: %d\n",n);
+	n = _printf("\%");
+	printf("This is the val of n: %d\n",n);
+
 	n = printf("This is garbage: \\%     s%s \n", x);
 	printf("%d\n",n);
 	n = _printf("This is garbage: \\%     s%s \n", x);
