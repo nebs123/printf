@@ -38,10 +38,10 @@ char *string_cat(char *str, char c)
 	return (s);
 }
 
-char *int_to_str(long int num)
+char *int_to_str(int num)
 {
 	int neg = 0;
-	unsigned long int j;
+	unsigned int j;
 	char *s;
 
 	if (num == 0)
