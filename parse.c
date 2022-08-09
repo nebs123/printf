@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  *
  *
@@ -30,7 +31,6 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	
 	va_start(list, format);
 	while (*format)
 	{
@@ -41,7 +41,6 @@ int _printf(const char *format, ...)
 			str = spec_handler(list,fmt_info);
 			if (str == NULL)
 			{
-				
 				if (fmt_info->spec == '\0')
 				{
 					free(fmt_info);
@@ -172,21 +171,4 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 		return (NULL);
 	else
 		return (*fun_list[x].fun)(list, info);
-}
-
-/**
- *
- *
- *
- */
-unsigned int str_len(char *str)
-{
-	unsigned int len = 0;
-
-	while(*str)
-	{
-		len++;
-		str++;
-	}
-	return (len);
 }

@@ -5,6 +5,23 @@
  *
  *
  */
+unsigned int str_len(char *str)
+{
+	unsigned int len = 0;
+
+	while(*str)
+	{
+		len++;
+		str++;
+	}
+	return (len);
+}
+
+/**
+ *
+ *
+ *
+ */
 char *string_cat(char *str, char c)
 {
 	unsigned int i;
@@ -20,6 +37,7 @@ char *string_cat(char *str, char c)
 	free(str);
 	return (s);
 }
+
 char *int_to_str(int num)
 {
 	int neg = 0;
@@ -51,6 +69,7 @@ char *int_to_str(int num)
 		s = string_pre(s, '-');
 	return (s);
 }
+
 char *string_pre(char *str, char c)
 {
 	unsigned int i = 0;
@@ -66,4 +85,3 @@ char *string_pre(char *str, char c)
 	free(str);
 	return(s);
 }
-
