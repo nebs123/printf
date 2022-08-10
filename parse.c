@@ -128,6 +128,8 @@ fmt_spec_info *spec_parser(const char *ptr)
 	fmt_spec_info *info;
 
 	info = malloc(sizeof(fmt_spec_info));
+	if (info == NULL)
+		return (NULL);
 	info->spec = '\0';
 	info->width = 0;
 	info ->precision = 0;
