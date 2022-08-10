@@ -166,11 +166,12 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 		{'x', x_to_str},
 		{'X', X_to_str},
 		{'S', S_to_str},
+		{'p', p_to_str},
 		{'\0', NULL}
 	};
 	int x;
 
-	for (x = 0; x < 10; x++)
+	for (x = 0; x < 11; x++)
 	{
 		if (info->spec == fun_list[x].c)
 		{
@@ -180,5 +181,7 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 	if (fun_list[x].fun == NULL)
 		return (NULL);
 	else
+	{
 		return (*fun_list[x].fun)(list, info);
+	}
 }
