@@ -38,6 +38,8 @@ int _printf(const char *format, ...)
 		{
 
 			fmt_info = spec_parser(format + 1);
+			if (fmt_info == NULL)
+				return (-1);
 			str = spec_handler(list,fmt_info);
 			if (str == NULL)
 			{
