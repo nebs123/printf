@@ -28,5 +28,7 @@ int main(void)
 	printf("n: %d\n", n);
 	n = _printf("%d and %i %u %o %x %X\n",100012, -100012, 255, 255, 255, 255);
 	printf("n: %d\n", n);
+
+	_printf("%S\n", "Best\nSchool");
 	return (0);
 }

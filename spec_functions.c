@@ -23,6 +23,7 @@ char *s_to_str(va_list list, fmt_spec_info *info)
 		s[3] = 'l';
 		s[4] = 'l';
 		s[5] = ')';
+		s[6] = '\0';
 
 		return (s);
 	}

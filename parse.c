@@ -165,6 +165,7 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 		{'o', o_to_str},
 		{'x', x_to_str},
 		{'X', X_to_str},
+		{'S', S_to_str},
 		{'\0', NULL}
 	};
 	int x;

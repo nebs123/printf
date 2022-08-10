@@ -62,6 +62,7 @@ char *u_to_str(va_list list, fmt_spec_info *info);
 char *o_to_str(va_list list, fmt_spec_info *info);
 char *x_to_str(va_list list, fmt_spec_info *info);
 char *X_to_str(va_list list, fmt_spec_info *info);
+char *S_to_str(va_list list, fmt_spec_info *info);
 char *string_cat(char *str, char c);
 char *int_to_str(int num);
 char *string_pre(char *str, char c);
@@ -70,4 +71,5 @@ char *uint_to_str(unsigned int num);
 char *oint_to_str(unsigned int num);
 char *xint_to_str(unsigned int num);
 char *Xint_to_str(unsigned int num);
+unsigned int S_count(char *str);
 #endif

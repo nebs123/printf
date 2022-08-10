@@ -73,3 +73,23 @@ char *Xint_to_str(unsigned int num)
 
 	return (s);
 }
+
+unsigned int S_count(char *str)
+{
+	unsigned int count = 0;
+
+	while (*str)
+	{
+		if (*str < 32 || *str >= 127)
+		{
+			count += 4;
+		}
+		else
+		{
+			count++;
+		}
+		str++;
+	}
+
+	return (count);
+}
