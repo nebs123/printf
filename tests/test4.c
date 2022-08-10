@@ -9,5 +9,10 @@ int main (void)
 
 	printf("%p\n%p\n%p\n", (void *)&x, (void *)&y, (void *)arr);
 	_printf("%p\n%p\n%p\n", (void *)&x, (void *)&y, (void *)arr);
+
+	printf("%p", NULL);
+	printf("%p\n", NULL);
+	_printf("%p", NULL);
+	_printf("%p\n", NULL);
 	return (0);
 }
