@@ -20,6 +20,8 @@ char *o_to_str(va_list list, fmt_spec_info *info)
 	(void) info;
 	num = va_arg(list, unsigned int);
 	s = oint_to_str(num);
+	if (info->flags & HASH && s[0] != '0')
+		s = string_pre(s, '0');
 	return (s);
 }
 
@@ -31,6 +33,11 @@ char *x_to_str(va_list list, fmt_spec_info *info)
 	(void) info;
 	num = va_arg(list, unsigned int);
 	s = xint_to_str(num);
+	if (info->flags & HASH && s[0] != '0')
+	{
+		s = string_pre(s, 'x');
+		s = string_pre(s, '0');
+	}
 	return (s);
 }
 
@@ -39,9 +46,14 @@ char *X_to_str(va_list list, fmt_spec_info *info)
 	char *s;
 	unsigned int num;
 
-	(void) info;
+
 	num = va_arg(list, unsigned int);
 	s = Xint_to_str(num);
+	if (info->flags & HASH && s[0] != '0')
+	{
+		s = string_pre(s, 'X');
+		s = string_pre(s, '0');
+	}
 	return (s);
 }
 

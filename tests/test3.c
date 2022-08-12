@@ -10,7 +10,7 @@
 int main(void)
 {
 	int n,n1,n2, i, num = 1;
-
+	/*
 	for (i = 0; i < 100; i++)
 	{
 		num = i;
@@ -20,13 +20,15 @@ int main(void)
 		if (n1 != n2)
 			printf("HERRRRRRRRRREEEEEEEEEEEEEEEEEEEEEEEEE\n");
 	}
-
+	*/
+	(void) n1;
+	(void) n2;
 	(void) num;
 	(void) i;
 
-	n = printf("%d and %i %u %o %x %X\n", 100012, -100012, 255, 255, 255,255);
+	n = printf("h%+ d and % i %u h%+# o h%+# x h%+# X\n", 100012, -100012, 255, 255, 255,255);
 	printf("n: %d\n", n);
-	n = _printf("%d and %i %u %o %x %X\n",100012, -100012, 255, 255, 255, 255);
+	n = _printf("h%+ d and % i %u h%+# o h%+# x h%+# X\n", 100012, -100012, 255, 255, 255,255);
 	printf("n: %d\n", n);
 
 	_printf("%S\n", "Best\nSchool");

@@ -69,6 +69,16 @@ char *di_to_str(va_list list, fmt_spec_info *info)
 	(void) info;
 	num = va_arg(list, int);
 	s = int_to_str(num);
+
+	if ((info->flags & PLUS) && s[0] != '-')
+	{
+		s = string_pre(s, '+');
+	}
+	else if ((info->flags & SPACE) && s[0] != '-')
+	{
+		s = string_pre(s, ' ');
+	}
+
 	return (s);
 }
 
