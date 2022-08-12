@@ -171,7 +171,7 @@ char *spec_handler(va_list list, fmt_spec_info *info)
 	};
 	int x;
 
-	for (x = 0; x < 11; x++)
+	for (x = 0; x < 12; x++)
 	{
 		if (info->spec == fun_list[x].c)
 		{

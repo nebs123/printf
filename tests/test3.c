@@ -5,7 +5,7 @@
  *
  *
  *
- *
+1;95;0c *
  */
 int main(void)
 {
@@ -29,6 +29,17 @@ int main(void)
 	n = printf("h%+ d and % i %u h%+# o h%+# x h%+# X\n", 100012, -100012, 255, 255, 255,255);
 	printf("n: %d\n", n);
 	n = _printf("h%+ d and % i %u h%+# o h%+# x h%+# X\n", 100012, -100012, 255, 255, 255,255);
+	printf("n: %d\n", n);
+
+	n = printf("% % % % ");
+	printf("n: %d\n", n);
+	n = _printf("% % % % ");
+	printf("n: %d\n", n);
+
+
+	n = printf("% ");
+	printf("n: %d\n", n);
+	n = _printf("% ");
 	printf("n: %d\n", n);
 
 	_printf("%S\n", "Best\nSchool");
